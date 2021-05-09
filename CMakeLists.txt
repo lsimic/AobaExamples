@@ -1,11 +1,13 @@
-﻿# CMakeList.txt : CMake project for AobaTest
-cmake_minimum_required(VERSION 3.12)
-project(AobaTest)
-add_executable(${PROJECT_NAME})
-add_subdirectory(src)
-set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 17)
-
-#AobaAPI
+﻿cmake_minimum_required(VERSION 3.12)
+project(AobaExamples)
 add_subdirectory(libs/AobaAPI)
-target_link_libraries(${PROJECT_NAME} "AobaAPI" "${AOBAAPI_LIBRARIES}")
-target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/libs/AobaAPI/include")
+
+file(GLOB APP_SOURCES src/*.cpp)
+foreach(sourcefile ${APP_SOURCES})
+    file(RELATIVE_PATH file ${CMAKE_CURRENT_SOURCE_DIR}/src ${sourcefile})
+    string(REPLACE ".cpp" "" filename ${file} )
+    add_executable(${filename} ${sourcefile})
+    set_property(TARGET ${filename} PROPERTY CXX_STANDARD 17)
+    target_link_libraries(${filename} "AobaAPI" "${AOBAAPI_LIBRARIES}")
+    # target_include_directories(${file} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/libs/AobaAPI/include")
+endforeach(sourcefile ${APP_SOURCES})
