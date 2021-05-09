@@ -7,7 +7,8 @@ Create a cube using extrusion, starting from a single vertex
 Create a chair
 
 ### 03_ParametricChair
-Create a program which generates chair variations based on a random seed.
+Create a program which generates chair variations based on a random seed.  
+For seeds [0-10] the back is not generated. for seeds [11-20] the back is generated. The random seed just works out that way and it's not a bug.
 
 ### 04_Airplane
 Create a complex airplane mesh, with fuselage, wings, vertical and horizontal stabilizers.

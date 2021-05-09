@@ -1,5 +1,7 @@
 #include "AobaAPI/AobaAPI.hpp"
 
+#include <cmath>
+
 // not the prettiest code I've written
 int main() {
     // create a new mesh

@@ -3,6 +3,7 @@
 #include <random>
 #include <sstream>
 #include <iostream>
+#include <cmath>
 
 // chair params class, which holds the properties which define the chair
 class ChairParams {
@@ -87,6 +88,15 @@ Aoba::Core::Mesh* MakeChair(ChairParams params) {
 }
 
 int main() {
+    for(int i = 0; i < 200; ++i) {
+        ChairParams params = ChairParams(i);
+        if(params.hasBack) {
+            std::cout<<i<< " ";
+        }
+    }
+    /*
+
+    
     // prompt the user to enter the seed
     int seed;
     std::cout<<"Enter random seed: ";
@@ -106,6 +116,6 @@ int main() {
     // export mesh, kill mesh(free the memory)
     Aoba::IO::ExportObj(name, mesh);
     Aoba::Core::KillMesh(mesh);
-    
+    */
     return 0;
 }

@@ -1,5 +1,7 @@
 #include "AobaAPI/AobaAPI.hpp"
 
+#include <cmath>
+
 int main() {
     // create a new mesh
     Aoba::Core::Mesh* mesh = new Aoba::Core::Mesh();
